@@ -1146,95 +1146,248 @@ select.form-control option {
 }
 
 /* =========================================================
-   RESPONSIVE DESIGN (MEDIA QUERIES)
+   RESPONSIVE DESIGN (TABLET & MOBILE BROWSERS)
    ========================================================= */
+
 @media (max-width: 1024px) {
   .app-container {
     padding: 24px 32px;
   }
   .hero-title {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
   }
   .hero-subtitle {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
   .cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 680px;
-  }
-  .bg-building {
-    width: 60%;
-    opacity: 0.65;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    max-width: 720px;
   }
 }
 
+/* Mobile Devices (Smartphones: Android, iPhone, etc.) */
 @media (max-width: 768px) {
+  html, body {
+    height: auto;
+    min-height: 100dvh;
+  }
+
   .app-container {
-    padding: 20px 18px;
-    justify-content: flex-start;
-    gap: 30px;
-  }
-  
-  .bg-building {
-    width: 100%;
-    opacity: 0.35;
-  }
-  
-  .top-header {
+    padding: 16px 18px 14px 18px;
+    min-height: 100dvh;
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  
+  /* Background adjustments on mobile */
+  .bg-cyber {
+    background-position: center center;
+    filter: contrast(1.05) brightness(1.02);
+  }
+
+  .bg-cyber-overlay {
+    background: 
+      /* Adaptive dark overlay for mobile vertical scrolling/card readability */
+      linear-gradient(to bottom, 
+        rgba(2, 16, 10, 0.72) 0%, 
+        rgba(2, 16, 10, 0.58) 35%, 
+        rgba(2, 16, 10, 0.45) 70%, 
+        rgba(2, 12, 8, 0.75) 100%
+      );
+  }
+  
+  /* Top Header: Keep brand on left & time/motto on right */
+  .top-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+  }
+  
+  .school-brand {
+    gap: 10px;
+  }
+
+  .logo-emblem {
+    width: 44px;
+    height: 44px;
+  }
+
+  .school-name {
+    font-size: 0.92rem;
+    line-height: 1.2;
+  }
+
+  .school-tagline {
+    font-size: 0.68rem;
   }
   
   .header-right {
-    width: 100%;
-    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
   }
   
   .motto-box {
-    text-align: left;
-    font-size: 1.2rem;
-    transform: none;
+    text-align: right;
+    font-size: 1.05rem;
+    line-height: 1.1;
+    transform: rotate(-1deg);
+  }
+
+  .live-time-badge {
+    padding: 4px 10px;
+    gap: 6px;
+  }
+
+  .time-pulse {
+    width: 6px;
+    height: 6px;
+  }
+
+  .live-clock {
+    font-size: 0.72rem;
+  }
+
+  .live-date {
+    display: none; /* Hide date on tiny mobile bar to keep header ultra clean */
   }
   
+  /* Hero Section */
   .hero-section {
-    margin: 10px 0 20px 0;
+    margin: 8px 0 14px 0;
+    max-width: 100%;
+  }
+
+  .hero-text-content {
+    margin-bottom: 20px;
   }
   
   .hero-title {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
+    line-height: 1.05;
+    margin-bottom: 2px;
   }
   
   .hero-subtitle {
     font-size: 1.45rem;
+    line-height: 1.15;
+    margin-bottom: 10px;
   }
   
   .hero-desc {
-    font-size: 1rem;
-    margin-bottom: 24px;
+    font-size: 0.95rem;
+    line-height: 1.4;
   }
   
+  /* Two Cards: Clean vertical cards with finger-friendly touch targets */
   .cards-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     width: 100%;
+    max-width: 100%;
   }
 
-  .bottom-footer {
-    flex-direction: column;
-    align-items: flex-start;
+  .presence-card {
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-content {
+    padding: 16px 18px;
     gap: 14px;
-    margin-top: auto;
-    padding-bottom: 16px;
+  }
+
+  .avatar-icon-wrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 2px;
+  }
+
+  .card-subtitle {
+    font-size: 0.82rem;
+  }
+
+  .card-action-btn {
+    width: 38px;
+    height: 38px;
+    margin-bottom: 0;
+  }
+
+  .arrow-svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Bottom Footer */
+  .bottom-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    gap: 10px;
+  }
+
+  .footer-logo {
+    width: 26px;
+    height: 26px;
+  }
+
+  .footer-school-name {
+    font-size: 0.8rem;
+  }
+
+  .footer-motto {
+    font-size: 0.65rem;
   }
 
   .footer-right {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .status-indicator {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .geo-indicator {
+    display: none; /* Hide verbose geofence text on mobile */
   }
 
   .modal-box {
     border-radius: 20px;
+    max-width: 95vw;
+  }
+}
+
+/* Extra Small Phones (<= 380px) */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+  .hero-desc {
+    font-size: 0.85rem;
+  }
+  .card-title {
+    font-size: 1.1rem;
+  }
+  .motto-box {
+    display: none; /* Hide quote on extremely narrow screens to avoid clutter */
   }
 }
